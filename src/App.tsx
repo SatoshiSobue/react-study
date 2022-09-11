@@ -1,11 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Counter from './hooks/useReducer';
+import { Parent } from './hooks/useCallback';
 
 function App() {
   return (
     <div className="App">
+      <Parent />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -20,7 +21,6 @@ function App() {
           Learn React
         </a>
       </header>
-      <Counter initialValue={0} />
     </div>
   );
 }
