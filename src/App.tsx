@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Parent } from './hooks/useCallback';
+import { Parent } from './hooks/memo';
 
 function App() {
   return (
