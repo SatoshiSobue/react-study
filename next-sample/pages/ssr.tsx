@@ -1,12 +1,13 @@
-import { GetStaticProps, NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 
-type SSGProps = {
+type SSRProps = {
   message: string;
 };
 
-const SSG: NextPage<SSGProps> = (props) => {
+const SSR: NextPage<SSRProps> = (props) => {
   const { message } = props;
+
   return (
     <div>
       <Head>
@@ -16,13 +17,17 @@ const SSG: NextPage<SSGProps> = (props) => {
         </title>
       </Head>
       <main>
-        <p>このページは静的サイトによってビルド時に生成されたページです</p>
+        <p>
+          このページはサーバーサイドレンリングによってアクセス時に生成されたページです
+        </p>
       </main>
     </div>
   );
 };
 
-export const getStaticProps: GetStaticProps<SSGProps> = async (context) => {
+export const getServerSideProps: GetServerSideProps<SSRProps> = async (
+  context
+) => {
   const timestamp = new Date().toLocaleDateString();
   const message = `${timestamp} にgetStaticPropsが実行されました`;
   console.log(message);
@@ -34,4 +39,4 @@ export const getStaticProps: GetStaticProps<SSGProps> = async (context) => {
   };
 };
 
-export default SSG;
+export default SSR;
